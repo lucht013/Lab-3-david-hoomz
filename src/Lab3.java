@@ -45,7 +45,7 @@ public class Lab3 {
             start = System.currentTimeMillis();
             Arrays.sort(timTestArray);
             end = System.currentTimeMillis();
-            System.out.println("Trial " + j + " TimSort result: " + (end-start) + " ms with " + timTestArray[0].getComparisons() + " comparisons");
+            System.out.println("Trial " + j + " TimSort result:   " + (end-start) + " ms with " + timTestArray[0].getComparisons() + " comparisons");
             System.out.println();
         }
     }
@@ -72,7 +72,7 @@ public class Lab3 {
             start = System.currentTimeMillis();
             Arrays.sort(timTestArray);
             end = System.currentTimeMillis();
-            System.out.println("Trial " + j + "TimSort result: " + (end-start) + " ms with " + timTestArray[0].getComparisons() + " comparisons");
+            System.out.println("Trial " + j + "TimSort result:   " + (end-start) + " ms with " + timTestArray[0].getComparisons() + " comparisons");
             System.out.println();
         }
     }
@@ -102,7 +102,7 @@ public class Lab3 {
             start = System.currentTimeMillis();
             Arrays.sort(timTestArray);
             end = System.currentTimeMillis();
-            System.out.println("Trial " + j + " TimSort result: " + (end-start) + " ms with " + timTestArray[0].getComparisons() + " comparisons");
+            System.out.println("Trial " + j + " TimSort result:   " + (end-start) + " ms with " + timTestArray[0].getComparisons() + " comparisons");
             System.out.println();
         }
     }
@@ -132,7 +132,7 @@ public class Lab3 {
             start = System.currentTimeMillis();
             Arrays.sort(timTestArray);
             end = System.currentTimeMillis();
-            System.out.println("Trial " + j + " TimSort result: " + (end-start) + " ms with " + timTestArray[0].getComparisons() + " comparisons");
+            System.out.println("Trial " + j + " TimSort result:   " + (end-start) + " ms with " + timTestArray[0].getComparisons() + " comparisons");
             System.out.println();
         }
     }
