@@ -1,3 +1,6 @@
+import com.sun.jdi.Value;
+
+import java.util.Arrays;
 import java.util.Random;
 
 public class SortingMethods {
@@ -48,5 +51,54 @@ public class SortingMethods {
         A[r] = swap;
         A[i] = swap2;
         return partition(A, p, r);
+    }
+
+    private static int medianOfThreePivot(TestInteger A[], int p, int r){
+        int indices[] = new int[3];
+        int values[] = new int[3];
+        TestInteger swap = new TestInteger();
+        TestInteger swap2 = new TestInteger();
+
+        Random rand = new Random();
+
+        int i1 = rand.nextInt((r - p) + 1) + p;
+        int i2 = rand.nextInt((r - p) + 1) + p;
+        int i3 = rand.nextInt((r - p) + 1) + p;
+
+        indices[0] = i1;
+        indices[1] = i2;
+        indices[2] = i3;
+
+        values[0] = A[i1].value;
+        values[1] = A[i2].value;
+        values[2] = A[i3].value;
+
+        //Arrays.sort(indices);
+        Arrays.sort(values);
+
+        int median = values[1];
+        int i = 0;
+
+        for (int j = 0; j < 3; j++){
+            if (A[indices[j]].value == median){
+                i = indices[j];
+            }
+        }
+        //System.out.println(Arrays.toString(storage));
+
+
+        swap = A[i];
+        swap2 = A[r];
+        A[r] = swap;
+        A[i] = swap2;
+        return partition(A, p, r);
+    }
+
+    public static void MOTPQuicksort(TestInteger A[], int p, int r){
+        if(p < r){
+            int q = medianOfThreePivot(A, p, r);
+            MOTPQuicksort(A, p, q-1);
+            MOTPQuicksort(A,q + 1, r);
+        }
     }
 }
