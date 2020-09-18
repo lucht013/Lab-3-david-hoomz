@@ -101,4 +101,52 @@ public class SortingMethods {
             MOTPQuicksort(A,q + 1, r);
         }
     }
+
+    //source for `insertionSort` and `insertionSortQuickSort` goes to https://www.techiedelight.com/hybrid-quicksort/
+    public static void insertionSort(TestInteger arr[], int low, int n) {
+        // Start from second element (element at index 0
+        // is already sorted)
+        for (int i = low + 1; i <= n; i++)
+        {
+            TestInteger value = arr[i];
+            int j = i;
+
+            // Find the index j within the sorted subset arr[0..i-1]
+            // where element arr[i] belongs
+            while (j > low && arr[j - 1].compareTo(value) == 1)
+            {
+                arr[j] = arr[j - 1];
+                j--;
+            }
+            // Note that subarray arr[j..i-1] is shifted to
+            // the right by one position i.e. arr[j+1..i]
+
+            arr[j] = value;
+        }
+    }
+
+    public static void insertionSortQuickSort(TestInteger[] A, int low, int high) {
+        while (low < high)
+        {
+            // do insertion sort if 10 or smaller
+            if (high - low < 10)
+            {
+                insertionSort(A, low, high);
+                break;
+            }
+            else
+            {
+                int pivot = partition(A, low, high);
+
+                // tail call optimizations - recur on smaller sub-array
+                if (pivot - low < high - pivot) {
+                    insertionSortQuickSort(A, low, pivot - 1);
+                    low = pivot + 1;
+                } else {
+                    insertionSortQuickSort(A, pivot + 1, high);
+                    high = pivot - 1;
+                }
+            }
+        }
+    }
 }
